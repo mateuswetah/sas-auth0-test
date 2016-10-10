@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Headers} from '@angular/http';
 import {AuthHttp} from 'angular2-jwt';
 import {AuthService} from '../../services/auth/auth';
 import 'rxjs/add/operator/map';
@@ -10,30 +10,30 @@ import 'rxjs/add/operator/map';
 export class PingPage {
   message: string;
   error: string;
-  
+
   constructor(private http: Http, private authHttp: AuthHttp, private auth: AuthService) {}
-  
+
   ping() {
     // Change the endpoint up for
     // one that points to your own server.
-    this.http.get('http://example.com/ping')
-      .map(res => res.json())
-      .subscribe(
-        data => this.message = data,
-        err => this.error = err
-      );
+   this.http.get('http://pastebin.com/raw/W05MCSTQ')
+     .map(res => res.json())
+     .subscribe(
+       data => this.message = data.message,
+       err => this.error = err
+     )
   }
-  
+
   securedPing() {
     // Here we use authHttp to make an authenticated
     // request to the server. Change the endpoint up for
     // one that points to your own server.
-    this.authHttp.get('http://example.com/secured/ping')
+    this.authHttp.get('http://pastebin.com/raw/W05MCSTQ')
       .map(res => res.json())
       .subscribe(
-        data => this.message = data,
+        data => this.message = data.message,
         err => this.error = err
       );
   }
-  
+
 }

@@ -8,7 +8,7 @@ import {AuthService} from './services/auth/auth';
 
 
 @Component({
-  template: '<ion-nav [root]="rootPage"></ion-nav>'
+  template: '<ion-nav [root]="rootPage"></ion-nav>',
 })
 export class MyApp {
 
@@ -29,7 +29,7 @@ export class MyApp {
 ionicBootstrap(MyApp, [
   provide(AuthHttp, {
     useFactory: (http) => {
-      return new AuthHttp(new AuthConfig({noJwtError: true}), http);
+      return new AuthHttp(new AuthConfig({noJwtError: false}), http);
     },
     deps: [Http]
   }),

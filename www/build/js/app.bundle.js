@@ -28,7 +28,7 @@ var MyApp = (function () {
     }
     MyApp = __decorate([
         core_1.Component({
-            template: '<ion-nav [root]="rootPage"></ion-nav>'
+            template: '<ion-nav [root]="rootPage"></ion-nav>',
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.Platform])
     ], MyApp);
@@ -38,7 +38,7 @@ exports.MyApp = MyApp;
 ionic_angular_1.ionicBootstrap(MyApp, [
     core_1.provide(angular2_jwt_1.AuthHttp, {
         useFactory: function (http) {
-            return new angular2_jwt_1.AuthHttp(new angular2_jwt_1.AuthConfig({ noJwtError: true }), http);
+            return new angular2_jwt_1.AuthHttp(new angular2_jwt_1.AuthConfig({ noJwtError: false }), http);
         },
         deps: [http_1.Http]
     }),
@@ -83,18 +83,18 @@ var PingPage = (function () {
         var _this = this;
         // Change the endpoint up for
         // one that points to your own server.
-        this.http.get('http://example.com/ping')
+        this.http.get('http://pastebin.com/raw/W05MCSTQ')
             .map(function (res) { return res.json(); })
-            .subscribe(function (data) { return _this.message = data; }, function (err) { return _this.error = err; });
+            .subscribe(function (data) { return _this.message = data.message; }, function (err) { return _this.error = err; });
     };
     PingPage.prototype.securedPing = function () {
         var _this = this;
         // Here we use authHttp to make an authenticated
         // request to the server. Change the endpoint up for
         // one that points to your own server.
-        this.authHttp.get('http://example.com/secured/ping')
+        this.authHttp.get('http://pastebin.com/raw/W05MCSTQ')
             .map(function (res) { return res.json(); })
-            .subscribe(function (data) { return _this.message = data; }, function (err) { return _this.error = err; });
+            .subscribe(function (data) { return _this.message = data.message; }, function (err) { return _this.error = err; });
     };
     PingPage = __decorate([
         core_1.Component({

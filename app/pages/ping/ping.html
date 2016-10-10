@@ -5,8 +5,8 @@
 <ion-content padding class="ping">
   <button block (click)="ping()">Ping</button>
   <button block (click)="securedPing()" *ngIf="auth.authenticated()">Secured Ping</button>
-  
+
   <p>{{ message }}</p>
-  
+
   <p>{{ error }}</p>
 </ion-content>
